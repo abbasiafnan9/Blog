@@ -9,7 +9,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.store);
 // Setup express app
 
 const app = express();
-const PORT = process.env.Port || 3302;
+const PORT = process.env.Port || 3306;
 
 // Requiring models for syncing
 const {User,Post,Review} = require('./models');
@@ -26,7 +26,7 @@ const sess = {
 
 app.use(session(sess));
 
-// Setsup express app to handle data parsing
+// Sets up express app to handle data parsing
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
@@ -37,13 +37,13 @@ const hbs = exphbs.create({});
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use('/',allRoutes);
+app.use('/', allRoutes);
 
 app.get('/',(req,res)=>{
     res.send("hello")
 })
 
-sequelize.sync({force: true}).then(function(){
+sequelize.sync({force: false}).then(function(){
     app.listen(PORT, function(){
         console.log('App listening on PORT' + PORT);
     });

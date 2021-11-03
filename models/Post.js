@@ -9,9 +9,9 @@ Post.init({
         allowNull:false,
         unique:true
     },
-    description: {
+   image: {
         type: DataTypes.TEXT,
-        allowNull:false,
+        unique:true,
     }
 },{
     sequelize
