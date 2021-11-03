@@ -6,13 +6,10 @@ const allRoutes = require('./controllers');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.store);
 
-// Setup express app
-
 const app = express();
 const PORT = process.env.Port || 3306;
 
-// Requiring models for syncing
-const {User,Post,Review} = require('./models');
+const {User, Post, Review} = require('./models');
 
 const sess = {
     secret: 'Super secret',
@@ -26,11 +23,9 @@ const sess = {
 
 app.use(session(sess));
 
-// Sets up express app to handle data parsing
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-// Static directory
 app.use(express.static('public'));
 
 const hbs = exphbs.create({});
