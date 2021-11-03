@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.Port || 3302;
 
 // Requiring models for syncing
-const {User} = require('./models');
+const {User,Post,Review} = require('./models');
 
 const sess = {
     secret: 'Super secret',
