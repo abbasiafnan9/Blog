@@ -1,10 +1,10 @@
 const express = require('express');
-const session = require('express-session');
+// const session = require('express-session');
 const exphbs = require('express-handlebars');
 const allRoutes = require('./controllers');
 
 const sequelize = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')(session.store);
+// const SequelizeStore = require('connect-session-sequelize')(session.store);
 
 // Setup express app
 
@@ -14,17 +14,17 @@ const PORT = process.env.Port || 3306;
 // Requiring models for syncing
 const {User,Post,Review} = require('./models');
 
-const sess = {
-    secret: 'Super secret',
-    cookie: {},
-    resave: false,
-    saveUninitialize: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
-};
+// const sess = {
+//     secret: 'Super secret',
+//     cookie: {},
+//     resave: false,
+//     saveUninitialize: true,
+//     store: new SequelizeStore({
+//         db: sequelize
+//     })
+// };
 
-app.use(session(sess));
+// app.use(session(sess));
 
 // Sets up express app to handle data parsing
 app.use(express.urlencoded({extended: true}));
