@@ -6,7 +6,11 @@ newReview.addEventListener("submit",(e)=>{
     const postReview={
         review:document.querySelector("#review").value,
     }
+<<<<<<< HEAD
     fetch('/api/review/'+id,{
+=======
+    fetch('/api/comments/'+id,{
+>>>>>>> dev
         method:"POST",
         body:JSON.stringify(postReview),
         headers:{
