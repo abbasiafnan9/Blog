@@ -13,7 +13,7 @@ delBtn.addEventListener("click", (x) => {
         }
     }).then(res=>{
         if(res.ok){
-           location.href = "/dash"
+           location.href = "/dashboard"
         } else {
             alert("error")
         }

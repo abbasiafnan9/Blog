@@ -22,7 +22,11 @@ signupForm.addEventListener("submit",(e)=>{
                 }
             }).then(res=>{
                 if(res.ok){
+<<<<<<< HEAD
+                   location.href = "/dashboard"
+=======
                    location.href = "/dash"
+>>>>>>> dev
                 } else {
                     alert("error")
                 }

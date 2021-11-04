@@ -1,18 +1,14 @@
-const newReview = document.querySelector("#new-review");
+const newComment = document.querySelector("#new-comment");
 const id = document.querySelector("#postId").textContent;
 
-newReview.addEventListener("submit",(e)=>{
+newComment.addEventListener("submit",(e)=>{
     e.preventDefault();
-    const postReview={
-        review:document.querySelector("#review").value,
+    const postComment={
+        comment:document.querySelector("#comment").value,
     }
-<<<<<<< HEAD
-    fetch('/api/review/'+id,{
-=======
     fetch('/api/comments/'+id,{
->>>>>>> dev
         method:"POST",
-        body:JSON.stringify(postReview),
+        body:JSON.stringify(postComment),
         headers:{
             "Content-Type":"application/json"
         }
