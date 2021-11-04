@@ -13,8 +13,8 @@ router.use("/comments",commentRoutes);
 const postRoutes = require("./postscontroller");
 router.use("/posts",postRoutes);
 
-const commentRoutes = require("./reviewcontroller");
-router.use("/comments",reviewRoutes);
+const reviewRoutes = require("./reviewcontroller");
+router.use("/reviews",reviewRoutes);
 
 const userRoutes = require("./userscontroller");
 router.use("/users",userRoutes);
