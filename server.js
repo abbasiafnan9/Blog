@@ -1,10 +1,10 @@
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const allRoutes = require('./controllers');
+const allRoutes = require('./routes/api');
 
 const sequelize = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')(session.store);
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.Port || 3306;
@@ -12,7 +12,8 @@ const PORT = process.env.Port || 3306;
 const {User, Post, Review} = require('./models');
 
 const sess = {
-    secret: 'Super secret',
+    // secret: 'Super secret',
+    secret: process.env.SECRET,
     cookie: {},
     resave: false,
     saveUninitialize: true,
@@ -26,7 +27,8 @@ app.use(session(sess));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const hbs = exphbs.create({});
 app.engine('handlebars', hbs.engine);
